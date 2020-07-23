@@ -13,7 +13,7 @@ Open a database from a file and select the table to export as csv:
 ```
 
 
-    $ java -jar mdb-to-csv-0.1.0-standalone.jar [args]
+
 
 
 ### Bugs
