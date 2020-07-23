@@ -10,7 +10,7 @@
                  [org.apache.poi/poi "3.9"]
                  [log4j/log4j "1.2.7"]
                  [org.clojure/data.csv "1.0.0"]
-                  [clojess "0.3.1"]]
+                 ]
   :main ^:skip-aot mdb-to-csv.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})

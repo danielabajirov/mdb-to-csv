@@ -7,18 +7,14 @@ Export csv from Microsoft Access Database, wrapping Jackcess.
 Download from https://github.com/danielabajirov/mdb-to-csv
 
 ## Usage
+Open a database from a file and select the table to export as csv:
+``` clj
+=> (make-csv "path/to/file.db" "name-table)
+```
 
-FIXME: explanation
 
     $ java -jar mdb-to-csv-0.1.0-standalone.jar [args]
 
-## Options
-
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
 
 ### Bugs
 
