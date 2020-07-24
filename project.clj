@@ -1,4 +1,4 @@
-(defproject mdb-to-csv "0.1.1"
+(defproject mdb-to-csv "0.1.0-SNAPSHOT"
   :description "A library to export csvfiles from access database."
   :url "https://github.com/danielabajirov/mdb-to-csv"
   :license {:name "EPL-2.0 OR GPL-2.0-or-later WITH Classpath-exception-2.0"
