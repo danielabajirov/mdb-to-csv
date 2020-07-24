@@ -4,7 +4,7 @@
    [clojure.walk :as walk]
    [clojure.data.csv :as csv]
    [clojure.java.io :as io]
-   [clojess.core :as db])
+  )
   (:import
    com.healthmarketscience.jackcess.DatabaseBuilder
    com.healthmarketscience.jackcess.Table
@@ -40,8 +40,10 @@
   "Returns a sequence of values-rows in the table that optionally match a pattern {column value}"
   ([table]
    (doall
-    (for [row (iterator-seq (.iterator table))]
-      (.values row)))))
+   (for [row (iterator-seq (.iterator table))]
+     (map #(if (number? %)
+             (clojure.string/replace % #"\." ",")
+             %) (.values row))))))
 
 (defn rows-id
   "Returns a sequence of keys-rows in the table that optionally match a pattern {column value}"
@@ -49,6 +51,14 @@
    (doall
     (for [row (iterator-seq (.iterator table))]
       (.keySet row)))))
+
+(defn point-to-coma [coll-v]
+  (for [row (iterator-seq (.iterator table))]
+    (map #(if (number? %)
+            (clojure.string/replace % #"\." ",")
+            %) (.values row)))
+  
+  )
 
 (defn make-csv [database-path table-name]
   "Make a csv file based on id and data of selected table"
@@ -61,3 +71,5 @@
     (with-open [writer (io/writer (str table-name ".csv"))]
       (csv/write-csv writer
                      complete-table :separator \;))))
+
+
