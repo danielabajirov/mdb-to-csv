@@ -60,16 +60,28 @@
   
   )
 
-(defn make-csv [database-path table-name]
-  "Make a csv file based on id and data of selected table"
-  (let [database-acces (atom (open-db database-path))
-        info-display (.setColumnOrder @database-acces Table$ColumnOrder/DISPLAY)
-        table-access (table @database-acces table-name)
-        id-table (into #{} (rows-id table-access))
-        data-table (rows-data table-access)
-        complete-table (concat id-table data-table)]
-    (with-open [writer (io/writer (str table-name ".csv"))]
-      (csv/write-csv writer
-                     complete-table :separator \;))))
+(defn make-csv 
+  ([database-path table-name]
+   "Make a csv file based on id and data of selected table"
+   (let [database-acces (atom (open-db database-path))
+         info-display (.setColumnOrder @database-acces Table$ColumnOrder/DISPLAY)
+         table-access (table @database-acces table-name)
+         id-table (into #{} (rows-id table-access))
+         data-table (rows-data table-access)
+         complete-table (concat id-table data-table)]
+     (with-open [writer (io/writer (str table-name ".csv"))]
+       (csv/write-csv writer
+                      complete-table :separator \;))))
+  ([database-path table-name path-name]
+   "Make a csv file based on id and data of selected table"
+   (let [database-acces (atom (open-db database-path))
+         info-display (.setColumnOrder @database-acces Table$ColumnOrder/DISPLAY)
+         table-access (table @database-acces table-name)
+         id-table (into #{} (rows-id table-access))
+         data-table (rows-data table-access)
+         complete-table (concat id-table data-table)]
+     (with-open [writer (io/writer (str path-name table-name ".csv"))]
+       (csv/write-csv writer
+                      complete-table :separator \;)))))
 
 
