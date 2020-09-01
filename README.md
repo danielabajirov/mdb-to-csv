@@ -2,31 +2,23 @@
 
 Export csv from Microsoft Access Database, wrapping Jackcess.
 
-## Installation
+## Where
 
-Download from https://github.com/danielabajirov/mdb-to-csv
+[![Clojars Project](https://img.shields.io/clojars/v/mdb-to-csv.svg)](https://clojars.org/mdb-to-csv)
 
+## Why
+
+The purpose of mdb-to-csv is to convert tables, rows , and single data from access database into a csv format.
 ## Usage
-Open a database from a file and select the table to export as csv:
+Open a database from a file and select the table to export as csv to a path:
 ``` clj
 => (make-csv "path/to/file.db" "name-table)
 ```
 
 
-
-
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
-
 ## License
 
-Copyright © 2020 FIXME
+Copyright © 2020
 
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License 2.0 which is available at

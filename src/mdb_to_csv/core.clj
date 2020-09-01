@@ -73,7 +73,7 @@
        (csv/write-csv writer
                       complete-table :separator \;))))
   ([database-path table-name path-name]
-   "Make a csv file based on id and data of selected table"
+   "Make a csv file to a path based on id and data of selected table"
    (let [database-acces (atom (open-db database-path))
          info-display (.setColumnOrder @database-acces Table$ColumnOrder/DISPLAY)
          table-access (table @database-acces table-name)
